@@ -1,0 +1,333 @@
+/* TecHub Agent - Professional Admin System */
+
+:root {
+    --background: #18181b;
+    /* Zinc 900 */
+    --surface: #27272a;
+    /* Zinc 800 */
+    --surface-hover: #3f3f46;
+    /* Zinc 700 */
+    --primary: #10b981;
+    --primary-glow: rgba(16, 185, 129, 0.4);
+    --border: rgba(255, 255, 255, 0.1);
+    --text-main: #f4f4f5;
+    /* Zinc 100 */
+    --text-dim: #a1a1aa;
+    /* Zinc 400 */
+}
+
+/* Base Reset */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text-main);
+    font-family: 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    /* App-like feel */
+    width: 100vw;
+    height: 100dvh;
+    font-size: 14px;
+    /* macOS Standard */
+    line-height: 1.4;
+}
+
+/* Glassmorphism helpers - Simplified for performance */
+/* Glassmorphism helpers */
+.glass-panel {
+    background: rgba(30, 30, 30, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-right: 1px solid var(--border);
+}
+
+
+.glass-card {
+    background: rgba(39, 39, 42, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove Mesh Gradients & Blobs for Professional Feel */
+.mesh-bg,
+.blob {
+    display: none !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    color: #fff;
+}
+
+.text-primary-gradient {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Mobile Optimizations */
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+/* Prevent zooming on inputs in iOS */
+input, textarea, select {
+    font-size: 16px !important;
+}
+
+/* Layout Utilities - Full Width "Zero Clip" */
+.main-layout-constraint {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    /* Remove force padding */
+    margin: 0;
+    overflow: hidden;
+    /* Let children handle scroll */
+}
+
+.layout-crm-workstation {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.responsive-grid-mandatory {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+}
+
+/* Animation Reset - Safer approach: handle per component or use partial reduction */
+
+/* Smooth Transition Policy (Balanced) */
+*,
+::before,
+::after {
+    transition-duration: 0.05s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Eliminate heavy animations while keeping responsiveness */
+.animate-in,
+.animate-out,
+.animate-pulse,
+.animate-bounce {
+    animation-duration: 0s !important;
+}
+
+/* Luxury Reset & Base */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text-main);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+}
+
+/* High-End Glassmorphism */
+/* High-End Glassmorphism (Apple Style) - Optimized */
+.glass-panel {
+    background: rgba(30, 30, 30, 0.85);
+    /* Increased opacity for better performance (less backdrop calculation needed if opaque) */
+    backdrop-filter: blur(12px) saturate(180%);
+    /* Reduced blur from 20px to 12px for performance */
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+    background: rgba(39, 39, 42, 0.6);
+    /* Zinc 800 with opacity */
+    backdrop-filter: blur(8px);
+    /* Reduced blur */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s;
+    /* Specific transitions only */
+}
+
+.glass-card:hover {
+    background: rgba(39, 39, 42, 0.8);
+    border-color: rgba(16, 185, 129, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+/* Specific Transitions - Performance Optimized */
+button,
+a,
+input {
+    transition: background-color 0.05s ease, color 0.05s ease, border-color 0.05s ease, opacity 0.05s ease;
+}
+
+.transition-all {
+    transition: all 0.05s ease-out;
+    /* Keep mostly for utility, but used sparingly */
+}
+
+/* Removed specific blob animations and mesh gradients as they were hidden anyway */
+
+/* Invisible Premium Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Tipografia de Luxo */
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-primary-gradient {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Premium Borders */
+.premium-border {
+    position: relative;
+}
+
+.premium-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent, rgba(16, 185, 129, 0.15));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Mandatory Layout Constraints */
+.main-layout-constraint {
+    max-width: 98vw;
+    margin: 0 auto;
+    padding-left: env(safe-area-inset-left, 16px);
+    padding-right: env(safe-area-inset-right, 16px);
+    padding-top: env(safe-area-inset-top, 16px);
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.no-horizontal-scroll {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.responsive-grid-mandatory {
+    display: grid;
+    gap: clamp(8px, 2vw, 24px);
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+@media (min-width: 481px) {
+    .responsive-grid-mandatory {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .responsive-grid-mandatory {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-grid-mandatory {
+        grid-template-columns: repeat(min(4, var(--max-cols, 4)), 1fr);
+    }
+}
+
+.layout-crm-workstation {
+    max-width: 98vw;
+    margin: 0 auto;
+    padding-left: env(safe-area-inset-left, 16px);
+    padding-right: env(safe-area-inset-right, 16px);
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

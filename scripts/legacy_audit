@@ -1,0 +1,58 @@
+
+import https from 'https';
+
+const CONFIG = {
+    apiKey: '429683C4C977415CAAFCCE10F7D57E11',
+    baseUrl: 'https://evolution.gamacreativedesign.com.br',
+    instanceName: 'teclab'
+};
+
+const makeRequest = (endpoint) => {
+    return new Promise((resolve, reject) => {
+        const url = `${CONFIG.baseUrl}${endpoint}`;
+        const options = {
+            headers: {
+                'apikey': CONFIG.apiKey,
+                'Content-Type': 'application/json'
+            }
+        };
+
+        const req = https.get(url, options, (res) => {
+            let data = '';
+            res.on('data', (chunk) => data += chunk);
+            res.on('end', () => {
+                try {
+                    resolve(JSON.parse(data));
+                } catch (e) {
+                    resolve({ error: 'Parse Error', raw: data });
+                }
+            });
+        });
+
+        req.on('error', (e) => reject(e));
+        req.end();
+    });
+};
+
+const runAudit = async () => {
+    console.log("=== EVOLUTION API AUDIT ===");
+    console.log(`Checking instance: ${CONFIG.instanceName}`);
+
+    try {
+        // 1. Check Connection Status
+        console.log("\n1. Connection State:");
+        const status = await makeRequest(`/instance/connectionState/${CONFIG.instanceName}`);
+        console.log(JSON.stringify(status, null, 2));
+
+        // 2. Check Webhook Config
+        console.log("\n2. Webhook Configuration:");
+        // Try v2 endpoint
+        const webhook = await makeRequest(`/webhook/find/${CONFIG.instanceName}`);
+        console.log(JSON.stringify(webhook, null, 2));
+
+    } catch (error) {
+        console.error("Audit failed:", error.message);
+    }
+};
+
+runAudit();

@@ -1,0 +1,23 @@
+{
+    "name": "TecHub Agent Maestro",
+    "short_name": "TecHub",
+    "description": "Sua Central de Inteligência e Atendimento IA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#10b981",
+    "icons": [
+        {
+            "src": "logo192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "logo512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}
